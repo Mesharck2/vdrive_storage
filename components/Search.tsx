@@ -24,8 +24,6 @@ const Search = () => {
 
   useEffect(() => {
     const fetchFiles = async() => {
-      // console.log('query')
-      // console.log(query)
       if(debouncedQuery.length === 0){
         setResults([])
         setOpen(false);
@@ -43,7 +41,7 @@ const Search = () => {
     }
 
     fetchFiles();
-  }, [debouncedQuery, query]);
+  }, [debouncedQuery, pathname, query, router, searchParams]);
   
   useEffect(() => {
     if(!searchQuery){
