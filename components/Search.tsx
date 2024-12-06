@@ -24,13 +24,13 @@ const Search = () => {
 
   useEffect(() => {
     const fetchFiles = async() => {
-      if(debouncedQuery.length === 0){
+      if(debouncedQuery.trim().length === 0){
         setResults([])
         setOpen(false);
         router.push(pathname.replace(searchParams.toString(), ""));
         return;
       }
-      if(query.length <= 0){
+      if(query.trim().length <= 0){
         setOpen(false);
         return;
       }
@@ -82,7 +82,7 @@ const Search = () => {
                 
               </li>))
             )
-             : (<p className="empty-results">No files found</p>)
+             : (<p className="empty-result">No files found</p>)
             }
           </ul>
         )}
