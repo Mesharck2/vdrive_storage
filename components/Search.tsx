@@ -31,6 +31,7 @@ const Search = () => {
         return;
       }
       if(query.trim().length <= 0){
+        setResults([])
         setOpen(false);
         return;
       }
@@ -41,7 +42,7 @@ const Search = () => {
     }
 
     fetchFiles();
-  }, [debouncedQuery, pathname, query, router, searchParams]);
+  }, [debouncedQuery, pathname, query, router, searchParams, results]);
   
   useEffect(() => {
     if(!searchQuery){
@@ -52,8 +53,8 @@ const Search = () => {
   
 
   const handleClickItem = (file: Models.Document) => {
-    setOpen(false);
     setResults([]);
+    setOpen(false);
     router.push(`/${(file.type === "video" || file.type === "audio") ? "media" : file.type + "s"}?query=${query}`);
   }
   

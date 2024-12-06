@@ -89,6 +89,12 @@ export const getFiles = async ({ types= [], searchText='', sort='$createdAt-desc
     const { databases } = await createAdminClient();
 
     try {
+
+        if(!types.length && searchText.trim().length<1){
+            return parseStringify({total:0, documents:[]});
+        }
+        
+        
         const currentUser = await getCurrentUser();
         if(!currentUser) {
             // No user found
@@ -180,9 +186,6 @@ export const deleteFile = async ({fileId, bucketFileId, path}: DeleteFileProps) 
         if(deletedFile){
             await storage.deleteFile(appwriteConfig.bucketId, bucketFileId);
         }
-
-        console.log('path path')
-        console.log(path)
         
         revalidatePath(path);
         return parseStringify({status: "success"});
