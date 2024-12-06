@@ -42,7 +42,7 @@ const Search = () => {
     }
 
     fetchFiles();
-  }, [debouncedQuery, pathname, query, router, searchParams, results]);
+  }, [debouncedQuery, pathname, query, router, searchParams]);
   
   useEffect(() => {
     if(!searchQuery){

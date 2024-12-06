@@ -15,8 +15,8 @@ const Sort = () => {
   const path = usePathname(); 
   const router = useRouter();
   
-  console.log(path);
-  console.log(router);
+  // console.log(path);
+  // console.log(router);
 
   const handleSort = async (value: string) => {
     router.push(`${path}?sort=${value}`);
