@@ -1,16 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { TrendingUp } from "lucide-react"
 import { Label, Pie, PieChart } from "recharts"
 
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card"
 import {
   ChartConfig,
@@ -52,18 +47,18 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function Chart({className}: {className?: string} ) {
+export function Chart({classNames}: {classNames?: string} ) {
   const totalVisitors = React.useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.visitors, 0)
   }, [])
 
   return (
-    <Card className={`${className} flex w-full`}>
+    <Card className={`${classNames} flex w-full`}>
       {/* <CardHeader className="items-center pb-0"> */}
         {/* <CardTitle>Pie Chart - Donut with Text</CardTitle> */}
         {/* <CardDescription>January - June 2024</CardDescription> */}
       {/* </CardHeader> */}
-      <CardContent className="flex-1 pb-0 justify-between">
+      <CardContent className="flex-1 justify-between pb-0">
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-h-[180px]"
@@ -79,7 +74,7 @@ export function Chart({className}: {className?: string} ) {
               nameKey="browser"
               innerRadius={60}
               strokeWidth={5}
-              className="text-white bg-white"
+              className="bg-white text-white"
             >
               <Label
                 content={({ viewBox }) => {
