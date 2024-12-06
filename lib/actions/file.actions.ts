@@ -90,9 +90,9 @@ export const getFiles = async ({ types= [], searchText='', sort='$createdAt-desc
 
     try {
 
-        if(!types.length && searchText.trim().length<1){
-            return parseStringify({total:0, documents:[]});
-        }
+        // if(!types.length && searchText.trim().length<1){
+        //     return parseStringify({total:0, documents:[]});
+        // }
         
         
         const currentUser = await getCurrentUser();
