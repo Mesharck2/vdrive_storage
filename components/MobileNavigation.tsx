@@ -56,13 +56,14 @@ const MobileNavigation = ({ $id: ownerId, accountId, fullName, avatar, email }: 
               <ul className="mobile-nav-list">
                 {navItems.map(({url, name, icon}) => (
                     // const active = pathname === url;
-                  <Link key={name} href={url} className='lg:w-full'>
+                  <Link onClick={()=>setOpen(false)} key={name} href={url} className='lg:w-full'>
                       <li className={cn("mobile-nav-item", pathname===url && "shad-active")}>
                           <Image src={icon} alt={name} width={24} height={24} 
                             className={cn("nav-icon", pathname=== url && "nav-icon-active")}  />
 
                           <p>{name}</p>
                       </li>
+                      
                   </Link>
                 ))}
               </ul>

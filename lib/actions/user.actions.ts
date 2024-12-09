@@ -95,7 +95,6 @@ export const getCurrentUser = async () => {
     if(!account){
         return null;
     }
-
     const result = await account.get();
 
     const user = await databases.listDocuments(
